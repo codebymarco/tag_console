@@ -83,3 +83,28 @@ export interface portfolio {
     type?: number,
     custom?: boolean,
   }
+
+ export const defaultForm: form = {
+    _id: '',
+    user_id: '',
+    bgcolor: '#ffffff',          // Default white background color
+    fontcolor: '#000000',        // Default black font color
+    inputbgcolor: '#f0f0f0',     // Default light gray input background color
+    btncolor: '#007bff',         // Default button color (Bootstrap primary blue)
+    btntxtcolor: '#ffffff',      // Default button text color (white)
+    inputtxtcolor: '#000000',    // Default input text color (black)
+    name: '',
+    email: '',
+    title: '',
+    reply_email: false,
+    reply_email_content: '',
+    premium: false,
+    namefield: false,
+    emailfield: false,
+    bodyfield: false,
+    status: true,                // Assuming active status by default
+    theme: 'default',            // Example default theme name
+    type: 0,                     // Default type (can be adjusted based on use case)
+    custom: false
+  };
+  

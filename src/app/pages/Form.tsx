@@ -21,20 +21,22 @@ import Preview from "../components/Preview";
 import { useStore } from "../store/store";
 import useAuthenticatedGetRequest from "../hooks/useGetData";
 import { api } from "../api/api";
-import { form } from "../helpers/helpers";
+import { defaultForm, form } from "../helpers/helpers";
+import CreateTag from "../components/CreateTag";
 
 const Form = () => {
   const [showPreview, setShowPreview] = useState(false);
   const [showThemes, setShowThemes] = useState(false);
   /*   const [showCustomize, setShowCustomize] = useState(false);
    */ const [showDetails, setShowDetails] = useState(false);
-  const [showGeneral, setShowGeneral] = useState(false);
+  const [showGeneral, setShowGeneral] = useState(true);
   const [showFields, setShowFields] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
 
   // edit modals
   const [showFormName, setShowFormName] = useState(false);
   const [showEmail, setShowEmail] = useState(false);
+  const [show, setShow] = useState(false);
   const [showTitle, setShowTitle] = useState(false);
   const [showReplyEmailContent, setShowReplyEmailContent] = useState(false);
   const [showReplyEmail, setShowReplyEmail] = useState(false);
@@ -55,13 +57,13 @@ const Form = () => {
     `${api}/api/user/forms/${formID}`,
     user.token
   );
-  const [form, setForm] = useState<form>({});
+  const [form, setForm] = useState<form>(defaultForm);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (data) {
       setForm(data);
     }
-  }, [data]);
+  }, [data]); */
 
   const copyScript = () => {
     const scriptToCopy = `
@@ -165,6 +167,7 @@ const Form = () => {
           onCancel={() => setShowEditFormStatus(false)}
         />
       ) : null}
+      {show ? <CreateTag onCancel={() => setShow(false)} /> : null}
       <div className="form-top">
         <Link to="/">forms/{form.name!}</Link>
         <FaRegEye
@@ -176,7 +179,7 @@ const Form = () => {
       <div className="form-content">
         <div className="form-section">
           <div className="form-section-top">
-            <h1>design</h1>
+            <h1>details</h1>
             {showDetails ? (
               <SlArrowUp
                 className="form-toggle-icon"
@@ -194,13 +197,19 @@ const Form = () => {
             <div className="form-section-container">
               <div
                 className="form-section-box"
-                onClick={() => setShowThemes(true)}
+                onClick={() => setShowFormName(true)}
               >
                 <div>
-                  <h1 className="label">theme</h1>
-                  <span className="value">{form.theme!}</span>
+                  <h1 className="label">container name</h1>
+                  <span className="value">container name</span>
                 </div>
                 <MdEdit className="form-edit-icon" />
+              </div>
+              <div className="form-section-box">
+                <div>
+                  <h1 className="label">container id</h1>
+                  <span className="value">hdagjhrsgksg</span>
+                </div>
               </div>
               {/*               <div className="form-section-box">
                 <div>
@@ -237,8 +246,8 @@ const Form = () => {
 
         <div className="form-section">
           <div className="form-section-top">
-            <h1>general</h1>
-            {showGeneral ? (
+            <h1>tags</h1>
+            {/*             {showGeneral ? (
               <SlArrowUp
                 className="form-toggle-icon"
                 onClick={() => setShowGeneral(!showGeneral)}
@@ -248,24 +257,19 @@ const Form = () => {
                 className="form-toggle-icon"
                 onClick={() => setShowGeneral(!showGeneral)}
               />
-            )}
+            )} */}
+            <button onClick={() => setShow(true)}>add tag</button>
           </div>
 
           {showGeneral ? (
             <div className="form-section-container">
-              <div className="form-section-box">
-                <div>
-                  <h1 className="label">form id</h1>
-                  <span className="value">{form._id!}</span>
-                </div>
-              </div>
               <div
                 className="form-section-box"
                 onClick={() => setShowFormName(true)}
               >
                 <div>
-                  <h1 className="label">form name</h1>
-                  <span className="value">{form.name!}</span>
+                  <h1 className="label">tag name</h1>
+                  <span className="value">script</span>
                 </div>
                 <MdEdit className="form-edit-icon" />
               </div>
@@ -275,8 +279,8 @@ const Form = () => {
                 onClick={() => setShowEmail(true)}
               >
                 <div>
-                  <h1 className="label">reciever email</h1>
-                  <span className="value">{form.email}</span>
+                  <h1 className="label">tag name</h1>
+                  <span className="value">script</span>
                 </div>
                 <MdEdit className="form-edit-icon" />
               </div>
@@ -286,8 +290,8 @@ const Form = () => {
                 onClick={() => setShowTitle(true)}
               >
                 <div>
-                  <h1 className="label">title</h1>
-                  <span className="value">{form.title}</span>
+                  <h1 className="label">tag name</h1>
+                  <span className="value">script</span>
                 </div>
                 <MdEdit className="form-edit-icon" />
               </div>
@@ -297,8 +301,8 @@ const Form = () => {
                 onClick={() => setShowReplyEmail(true)}
               >
                 <div>
-                  <h1 className="label">reply email</h1>
-                  <span className="value">{form.reply_email!.toString()}</span>
+                  <h1 className="label">tag name</h1>
+                  <span className="value">script</span>
                 </div>
                 <MdEdit className="form-edit-icon" />
               </div>
@@ -308,10 +312,8 @@ const Form = () => {
                 onClick={() => setShowReplyEmailContent(true)}
               >
                 <div>
-                  <h1 className="label">reply email content</h1>
-                  <span className="value">
-                    {form.reply_email_content?.slice(0, 20)} ...
-                  </span>
+                  <h1 className="label">tag name</h1>
+                  <span className="value">script</span>
                 </div>
                 <MdEdit className="form-edit-icon" />
               </div>
@@ -319,7 +321,7 @@ const Form = () => {
           ) : null}
         </div>
 
-        <div className="form-section">
+        {/*         <div className="form-section">
           <div className="form-section-top">
             <h1>fields</h1>
             {showFields ? (
@@ -370,7 +372,7 @@ const Form = () => {
               </div>
             </div>
           ) : null}
-        </div>
+        </div> */}
 
         <div className="form-section">
           <div className="form-section-top">
@@ -405,7 +407,7 @@ const Form = () => {
                 onClick={() => setShowDeleteForm(true)}
               >
                 <div>
-                  <h1 className="label">delete form</h1>
+                  <h1 className="label">delete container</h1>
                   <span className="value">delete</span>
                 </div>
                 <MdDelete className="form-delete-icon" />

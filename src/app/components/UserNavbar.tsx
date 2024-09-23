@@ -51,7 +51,7 @@ const UserNavbar = () => {
         className="logo-navbar"
         onClick={() => route(`/console/${user.user._id}/forms`)}
       >
-        formio user
+        
       </h1>
       <AiOutlineMenu
         onClick={() => setShowmobile(true)}
