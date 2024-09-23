@@ -13,6 +13,7 @@ const Forms = () => {
 
   const navigate = useNavigate();
   const goTo = (id: string) => {
+    console.log(id)
     navigate(`/console/${userID}/forms/formid`);
   };
 
@@ -24,6 +25,8 @@ const Forms = () => {
   const [show, setShow] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState<form[]>([]);
+  console.log(filteredData)
+
 
   useEffect(() => {
     if (data) {

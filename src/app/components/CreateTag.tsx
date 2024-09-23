@@ -4,10 +4,8 @@ interface TemplateProps {
   onCancel: () => void;
 }
 
-const EditName: React.FC<TemplateProps> = ({ onCancel }) => {
-  const save = () => {
-    onCancel();
-  };
+const EditName: React.FC<TemplateProps> = () => {
+
 
   return (
     <div className="createTag">

@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import "animate.css";
 import "../styles/pages/form.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Templates from "../components/Templates";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
@@ -29,8 +29,7 @@ const Form = () => {
   const [showThemes, setShowThemes] = useState(false);
   /*   const [showCustomize, setShowCustomize] = useState(false);
    */ const [showDetails, setShowDetails] = useState(false);
-  const [showGeneral, setShowGeneral] = useState(true);
-  const [showFields, setShowFields] = useState(false);
+  const showGeneral = true
   const [showSettings, setShowSettings] = useState(false);
 
   // edit modals
@@ -58,6 +57,8 @@ const Form = () => {
     user.token
   );
   const [form, setForm] = useState<form>(defaultForm);
+
+  console.log(data, setForm)
 
   /*   useEffect(() => {
     if (data) {
