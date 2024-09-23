@@ -1,0 +1,36 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
+import DashboardLayout from "../layouts/DashboardLayout";
+import Settings from "../pages/Settings";
+import PopupTest from "../pages/PopupTest";
+import MainLayout from "../layouts/MainLayout";
+import Questions from "../pages/Questions";
+import Portfolio from "../pages/Portfolio";
+import Console from "../pages/Console";
+
+const Router = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/popup-test" element={<PopupTest />} />
+        </Route>
+
+        <Route path="/console/:userID/" element={<DashboardLayout />}>
+          <Route index element={<Console />} />
+          <Route path="questions" element={<Questions />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
+
+        <Route path="/console/:userID/portfolio" element={<Portfolio />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default Router;

@@ -1,0 +1,174 @@
+.forms {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.forms-heading{
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.forms-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.forms-top div {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+.forms-top div input {
+  width: 100%;
+  height: 30px;
+  outline: none;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.forms-top div button {
+  height: 30px;
+  outline: none;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.forms-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.forms-container .forms-box {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.forms-container .forms-box h1 {
+  font-size: 20px;
+}
+
+.forms-container .forms-box p {
+  color: grey;
+  font-size: 13px;
+}
+
+.forms-container .forms-box div {
+  display: flex;
+  flex-direction: column;
+}
+
+.forms-container .noforms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-form-icon {
+  font-size: 1rem;
+  cursor: pointer;
+  color: red;
+}
+
+.forms-heading{
+  margin-bottom: 20px
+}
+
+@media (min-width: 700px) {
+  .forms {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .forms-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .forms-top div {
+    display: flex;
+    gap: 10px;
+    width: fit-content;
+  }
+  .forms-top div input {
+    width: 300px;
+    height: 30px;
+    outline: none;
+    border: 1px solid black;
+    padding: 10px;
+  }
+
+  .forms-top div button {
+    height: 30px;
+    outline: none;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .forms-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+    padding: 20px;
+  }
+
+  .forms-container .forms-box {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .forms-container .forms-box p {
+    color: grey;
+  }
+
+  .forms-container .forms-box div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .forms-container .noforms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .delete-form-icon {
+    font-size: 1rem;
+    cursor: pointer;
+    color: red;
+  }
+  .forms-heading{
+    margin-bottom: 0px
+  }
+}

@@ -1,0 +1,65 @@
+.home {
+  height: calc(
+    90vh - 10vh
+  ); /* Adjust 100px according to your header/footer height */
+  background-color: azure;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home .home-heading {
+  font-size: 1rem;
+}
+
+.home .home-para {
+  text-align: center;
+  width: 70%;
+  color: grey;
+}
+
+.home .home-link {
+  all: unset;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.home button {
+  all: unset;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.home-con {
+  margin-top: 20px;
+}
+
+@media (min-width: 700px) {
+  .home .home-heading {
+    font-size: 4rem;
+  }
+
+  .home .home-para {
+    font-size: 1rem;
+  }
+
+  .home .home-link {
+    font-size: 1rem;
+    margin: 20px;
+  }
+}
+
+@media (min-width: 700px) {
+  .home {
+    height: 90vh;
+  }
+}

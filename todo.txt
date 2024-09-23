@@ -1,0 +1,12 @@
+styling
+all popups
+all modals
+all pages
+responsiveness
+style login, signup and home and settings page
+get icons
+mobile menu and mobile edit bar
+
+logic
+make fonts dynamic
+make local store for now to act as database

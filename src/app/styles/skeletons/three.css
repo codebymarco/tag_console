@@ -1,0 +1,90 @@
+.three {
+  background-color: dodgerblue;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.three *{
+  width: 150px;
+  padding: 10px;
+}
+
+.three title{
+  font-size: 1rem;
+}
+
+.three input{
+  height: 30px;
+  border: none;
+  outline: none;
+}
+
+.three .button{
+  height: 30px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.three .button:hover{
+  background-color: gray;
+}
+
+.three textarea{
+  height: 50px;
+  border: none;
+  outline: none;
+}
+
+@media (min-width: 700px) {
+  .three {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .three *{
+    width: 300px;
+    padding: 10px;
+  }
+
+  .three title{
+    font-size: 1rem;
+  }
+  
+  .three input{
+    height: 30px;  
+  }
+  
+  .three .button{
+    height: 40px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .three .button:hover{
+    background-color: gray;
+  }
+  
+  .three textarea{
+    height: 120px;
+  }
+}
