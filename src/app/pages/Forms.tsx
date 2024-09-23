@@ -13,7 +13,7 @@ const Forms = () => {
 
   const navigate = useNavigate();
   const goTo = (id: string) => {
-    navigate(`/console/${userID}/forms/${id}`);
+    navigate(`/console/${userID}/forms/formid`);
   };
 
   const { data, refetch } = useAuthenticatedGetRequest(
@@ -28,7 +28,7 @@ const Forms = () => {
   useEffect(() => {
     if (data) {
       setFilteredData(
-        data.filter((form:any) =>
+        data.filter((form: any) =>
           form.name.toLowerCase().includes(searchQuery.toLowerCase())
         )
       );
@@ -37,12 +37,14 @@ const Forms = () => {
 
   return (
     <div className="forms">
-      {show ? <CreateForm refetch={refetch} onCancel={() => setShow(false)} /> : null}
+      {show ? (
+        <CreateForm refetch={refetch} onCancel={() => setShow(false)} />
+      ) : null}
       <div className="forms-top">
-      <h1 className="forms-heading">Forms</h1>
+        <h1 className="forms-heading">Containers</h1>
         <div>
-          <input 
-            type="text" 
+          <input
+            type="text"
             placeholder="Search by name"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -51,22 +53,24 @@ const Forms = () => {
         </div>
       </div>
       <div className="forms-container">
-        {filteredData.length > 0 ? (
-          filteredData.map((form) => {
-            return (
-              <div onClick={() => goTo(form._id!)} className="forms-box" key={form._id}>
-                <div>
-                  <h1>{form.name}</h1>
-                  <p>{form.status ? "active": "unactive"}</p>
-                </div>
-              </div>
-            );
-          })
-        ) : (
-          <div className="noforms">
-            <p>No forms found</p>
+        <div onClick={() => goTo("userid")} className="forms-box" key={""}>
+          <div>
+            <h1>name</h1>
+            <p>active</p>
           </div>
-        )}
+        </div>
+        <div onClick={() => goTo("userid")} className="forms-box" key={""}>
+          <div>
+            <h1>name</h1>
+            <p>active</p>
+          </div>
+        </div>
+        <div onClick={() => goTo("userid")} className="forms-box" key={""}>
+          <div>
+            <h1>name</h1>
+            <p>active</p>
+          </div>
+        </div>
       </div>
     </div>
   );
